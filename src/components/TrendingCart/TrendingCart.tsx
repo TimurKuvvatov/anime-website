@@ -1,11 +1,6 @@
-import React from 'react'
-import styles from './TrendingCart.module.scss'
+import styles from './TrendingCart.module.scss';
 const TrendingCart = () => {
-  return (
-    <div className={styles.cart}>
-        
-    </div>
-  )
-}
+    return <div className={styles.cart}></div>;
+};
 
-export default TrendingCart
+export default TrendingCart;

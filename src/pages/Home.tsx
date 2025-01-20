@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Trending from '../components/Trending/Trending';
 import Hits from '../components/Hits/Hits';
 

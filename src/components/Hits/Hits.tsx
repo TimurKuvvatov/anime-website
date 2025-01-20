@@ -1,11 +1,10 @@
-import React from 'react'
-import styles from './Hits.module.scss'
+import styles from './Hits.module.scss';
 const Hits = () => {
-  return (
-    <div className={styles.hits}>
-        <h1>Хит сезона</h1>
-    </div>
-  )
-}
+    return (
+        <div className={styles.hits}>
+            <h1>Хит сезона</h1>
+        </div>
+    );
+};
 
-export default Hits
+export default Hits;
