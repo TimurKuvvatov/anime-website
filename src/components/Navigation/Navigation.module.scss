@@ -1,0 +1,23 @@
+@import '../../styles/scss/variables';
+
+.navigation {
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        text-transform: uppercase;
+        color: $primary-white;
+        li {
+            display: flex;
+            align-items: center;
+            height: 70px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            border-radius: 10px;
+            &:hover {
+                background: $primary-dark;
+                
+            }
+        }
+    }
+}
