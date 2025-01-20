@@ -6,15 +6,17 @@ import styles from './TrendingCarousel.module.scss';
 
 import TrendingCart from '../TrendingCart/TrendingCart';
 import { Navigation } from 'swiper/modules';
+import { setActiveNews } from '../../redux/slices/activeNewsSlice';
+import { newsApi } from '../../services/newsApi';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+
 const TrendingCarousel: React.FC = () => {
-    const [activeSlide, setActiveSlide] = useState<number>(0);
-
-    const handleSlideChange = (swiper: any) => {
-        setActiveSlide(swiper.realIndex);
+    const { data: news } = newsApi.useGetNewsQuery();
+    const dispatch = useAppDispatch();
+    const activeNews = useAppSelector((state) => state.activeNews.activeNewsId);
+    const handleClickSlide = (newsId: number) => {
+        dispatch(setActiveNews(newsId));
     };
-
-    const items = ['asdasd', 'asdasdasd', '1234', '00100', '1232'];
-
     return (
         <div className={styles.swiper}>
             <Swiper
@@ -23,16 +25,19 @@ const TrendingCarousel: React.FC = () => {
                 slidesPerView={3.5}
                 navigation
                 loop={true}
-                onSlideChange={handleSlideChange}
             >
-                {items.map((item) => (
-                    <SwiperSlide key={item}>
-                        <TrendingCart></TrendingCart>
-                    </SwiperSlide>
-                ))}
+                {news &&
+                    news.map((newsElem) => (
+                        <SwiperSlide
+                            onClick={() => handleClickSlide(newsElem.id)}
+                            key={newsElem.id}
+                        >
+                            <TrendingCart {...newsElem}></TrendingCart>
+                        </SwiperSlide>
+                    ))}
             </Swiper>
             <div>
-                <h4>Текущий активный слайд: {activeSlide + 1}</h4>
+                <h4>Текущий активный слайд: {activeNews}</h4>
             </div>
         </div>
     );

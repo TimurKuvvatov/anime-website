@@ -4,5 +4,21 @@
     width: 220px;
     height: 260px;
     background-color: $primary-dark;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
     border-radius: 20px;
+    overflow: hidden;
+    padding: 10px;
+    .info {
+        color: $primary-white;
+        transition: all 0.3s ease;
+        opacity: 0;
+    }
+    &:hover {
+        background: $primary-dark !important;
+        .info {
+            opacity: 1;
+        }
+    }
 }

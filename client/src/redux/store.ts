@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { newsApi } from '../services/newsApi';
+import activeNewsReducer from './slices/activeNewsSlice';
 const rootReducer = combineReducers({
     [newsApi.reducerPath]: newsApi.reducer,
+    activeNews: activeNewsReducer,
 });
 
 export const store = () => {

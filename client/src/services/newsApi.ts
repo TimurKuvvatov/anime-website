@@ -3,7 +3,7 @@ import { INews } from '../models/INews';
 
 export const newsApi = createApi({
     reducerPath: 'newsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api/news' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api/news' }),
     endpoints: (builder) => ({
         getNews: builder.query<INews[], void>({
             query: () => '',
