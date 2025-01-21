@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styles from './Navigation.module.scss';
+import { Link } from 'react-router-dom';
 
 const Navigation: FC = () => {
     const navList = [
@@ -12,7 +13,7 @@ const Navigation: FC = () => {
             link: '',
         },
         {
-            name: 'Жанры',
+            name: 'ПОИСК АНИМЕ',
             link: '',
         },
         {
@@ -25,7 +26,9 @@ const Navigation: FC = () => {
         <nav className={styles.navigation}>
             <ul>
                 {navList.map((navElem) => (
-                    <li key={navElem.name}>{navElem.name}</li>
+                    <li key={navElem.name}>
+                        <Link to={navElem.link}>{navElem.name}</Link>
+                    </li>
                 ))}
             </ul>
         </nav>

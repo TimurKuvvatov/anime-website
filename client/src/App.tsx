@@ -1,11 +1,11 @@
 import Header from './components/Header/Header';
-import Home from './pages/Home';
+import { AppRoutes } from './routes/routes';
 
 function App() {
     return (
         <>
-            <Header/> 
-            <Home />
+            <Header />
+            <AppRoutes />
         </>
     );
 }

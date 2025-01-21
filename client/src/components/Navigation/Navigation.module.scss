@@ -10,13 +10,17 @@
         li {
             display: flex;
             align-items: center;
+            padding: 0 10px;
             height: 70px;
             cursor: pointer;
             transition: background 0.2s ease;
             border-radius: 10px;
+            a {
+                text-decoration: none;
+                color: $primary-white;
+            }
             &:hover {
                 background: $primary-dark;
-                
             }
         }
     }

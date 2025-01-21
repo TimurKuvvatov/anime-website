@@ -1,7 +1,7 @@
 @import '../../styles/scss/variables';
 
 .trending {
-    height: 900px;
+    height: 100vh;
     background-color: $primary-dark;
     position: relative;
     overflow: hidden;
@@ -17,7 +17,7 @@
         align-items: center;
         justify-content: center;
         gap: 150px;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(3px);
         display: flex;
         flex-direction: row;
     }
