@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './AnimeInfo.module.scss';
 
 interface AnimeInfoProps {
@@ -12,7 +12,9 @@ interface AnimeInfoProps {
 const AnimeInfo: FC<AnimeInfoProps> = ({ kind, episodes, status, rating, score }) => {
     return (
         <ul className={styles.list}>
-            <li>Оценка: <span>{score}</span></li>
+            <li>
+                Оценка: <span>{score}</span>
+            </li>
             <li>
                 Тип: <span>{kind}</span>{' '}
             </li>

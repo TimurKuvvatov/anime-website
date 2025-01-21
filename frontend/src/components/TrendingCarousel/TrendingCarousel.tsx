@@ -13,10 +13,7 @@ import { useAppDispatch } from '../../redux/hooks';
 const TrendingCarousel: FC = () => {
     const { data: news } = newsApi.useGetNewsQuery();
     const dispatch = useAppDispatch();
-    const [activeSlideId, setActiveSlideId] = useState<number | null>(null);
-
     const handleClickSlide = (newsId: number) => {
-        setActiveSlideId(newsId);
         dispatch(setActiveNews(newsId));
     };
 
@@ -25,7 +22,6 @@ const TrendingCarousel: FC = () => {
         if (news) {
             const currentSlide = news[currentIndex];
             if (currentSlide) {
-                setActiveSlideId(currentSlide.id);
                 dispatch(setActiveNews(currentSlide.id));
             }
         }

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { IAnimeCart } from '../../models/IAnimeCart';
 import styles from './CartAnime.module.scss';
 import { BASE_URL } from '../../constants';
