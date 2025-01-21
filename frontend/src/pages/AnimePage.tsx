@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import AnimeDetail from '../components/AnimeDetail/AnimeDetail';
 import { useParams } from 'react-router-dom';
 import { animeApi } from '../services/animeApi';
