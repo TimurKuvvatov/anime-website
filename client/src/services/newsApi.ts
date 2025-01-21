@@ -3,7 +3,9 @@ import { INews } from '../models/INews';
 
 export const newsApi = createApi({
     reducerPath: 'newsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api/news' }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://anime-website-timurkuvvatov.vercel.app/api/news',
+    }),
     endpoints: (builder) => ({
         getNews: builder.query<INews[], void>({
             query: () => '',
