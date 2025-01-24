@@ -8,7 +8,7 @@
     },
     "name": "backend",
     "version": "1.0.0",
-    "main": "dist/index.js",
+    "main": "dist/src/api/index.js",
     "dependencies": {
         "@prisma/client": "^6.2.1",
         "acorn": "^8.14.0",

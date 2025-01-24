@@ -8,11 +8,7 @@
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "/backend/dist/server.js"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "destination": "/backend/dist/src/api/index.js"
         }
     ]
 }
