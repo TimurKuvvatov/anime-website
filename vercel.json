@@ -8,13 +8,11 @@
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "/backend/dist/api/index.js" 
+            "destination": "/backend/dist/api/index.js"
         },
         {
             "source": "/(.*)",
-            "destination": "/frontend/dist/index.html" 
+            "destination": "/frontend/dist/$1"
         }
-    ],
-    "buildCommand": "npm run build", 
-    "outputDirectory": "dist"
+    ]
 }
