@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "functions": {
+        "api/(.*)": {
+            "runtime": "nodejs20.x"
+        }
+    },
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/backend/dist/api/index.js" 
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/frontend/dist/index.html" 
+        }
+    ],
+    "buildCommand": "npm run build", 
+    "outputDirectory": "dist"
+}
