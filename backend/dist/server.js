@@ -15,6 +15,10 @@ app.use((0, cors_1.default)({
     credentials: true,
 }));
 app.use('/api', route_1.default);
+app.use((req, res, next) => {
+    res.setHeader('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self';");
+    next();
+});
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);
 });
