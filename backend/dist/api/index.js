@@ -22,4 +22,5 @@ app.use((req, res, next) => {
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);
 });
+exports.default = app;
 //# sourceMappingURL=index.js.map
