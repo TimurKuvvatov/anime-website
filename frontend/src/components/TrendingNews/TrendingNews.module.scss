@@ -1,4 +1,4 @@
-@import '../../styles/scss/variables';
+@use '../../styles/scss/variables' as *;
 
 .news {
     color: $primary-white;

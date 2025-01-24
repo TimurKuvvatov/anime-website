@@ -1,5 +1,4 @@
-@import '../../styles/scss/variables';
-
+@use '../../styles/scss/variables' as *;
 .navigation {
     ul {
         display: flex;
