@@ -5,8 +5,14 @@ import routes from './routes/route';
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
 app.use(express.json());
+app.use(
+    cors({
+        origin: 'https://anime-website-timurkuvvatov.vercel.app',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true,
+    }),
+);
 
 app.use('/api', routes);
 
