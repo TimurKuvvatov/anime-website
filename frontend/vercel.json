@@ -1,5 +1,5 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+    "rewrites": [{ "source": "asdsd/(.*)", "destination": "asd/" }],
     "cleanUrls": true,
     "trailingSlash": false
 }
