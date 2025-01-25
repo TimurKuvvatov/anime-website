@@ -4,7 +4,7 @@ import { INews } from '../models/INews';
 export const newsApi = createApi({
     reducerPath: 'newsApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://anime-website-timurkuvvatov.vercel.app/api/news',
+        baseUrl: 'https://anime-website-timurkuvvatov.onrender.com/api/news',
     }),
     endpoints: (builder) => ({
         getNews: builder.query<INews[], void>({
