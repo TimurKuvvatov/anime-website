@@ -1,13 +1,14 @@
 {
     "version": 2,
-    "buildCommand": "npm run build",
-    "outputDirectory": "frontend/dist",
+    "buildCommand": "npm run build", 
+    "outputDirectory": "dist", 
     "cleanUrls": true,
-    "trailingSlash": false,
+    "trailingSlash": true,
     "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
     ]
-}
+  }
+  
