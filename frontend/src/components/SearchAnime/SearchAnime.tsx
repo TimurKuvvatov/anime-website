@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react';
+import React, { FC} from 'react';
 import styles from './SearchAnime.module.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { setSearch } from '../../redux/slices/searchSlice';
