@@ -14,7 +14,7 @@ const Navigation: FC = () => {
         },
         {
             name: 'ПОИСК АНИМЕ',
-            link: '',
+            link: '/animes',
         },
         {
             name: 'Личный кабинет',

@@ -10,7 +10,7 @@ import 'swiper/swiper-bundle.css';
 import CartAnime from '../CartAnime/CartAnime';
 
 const Hits: FC = () => {
-    const { data: animes } = animeApi.useGetAllAnimesQuery(20);
+    const { data: animes } = animeApi.useGetAllAnimesQuery({ limit: 20, order: 'popularity' });
     return (
         <div className={styles.hits}>
             <h1>ПОПУЛЯРНЫЕ</h1>

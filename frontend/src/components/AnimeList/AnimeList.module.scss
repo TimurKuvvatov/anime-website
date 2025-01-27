@@ -1,0 +1,46 @@
+@use '../../styles/scss/variables' as *;
+.wrapper {
+    width: 100%;
+    padding: 20px;
+    padding-top: 100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    flex-direction: row;
+    justify-content: center;
+    .list {
+        padding: 20px;
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        background: $primary-dark-gray;
+        .anime {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            .info {
+                color: $primary-white;
+                h3 {
+                    text-transform: uppercase;
+                    font-size: 30px;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+                h2 {
+                    font-weight: 100;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .filter {
+        max-width: 300px;
+        width: 100%;
+        height: 300px;
+        background: $primary-dark-gray;
+    }
+}

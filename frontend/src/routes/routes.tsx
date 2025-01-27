@@ -1,6 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 import Home from '../pages/Home';
 import AnimePage from '../pages/AnimePage';
+import AnimeListPage from '../pages/AnimeListPage';
 
 export const AppRoutes = () => {
     return useRoutes([
@@ -11,6 +12,10 @@ export const AppRoutes = () => {
         {
             path: '/animes/:id',
             element: <AnimePage />,
+        },
+        {
+            path: '/animes',
+            element: <AnimeListPage />,
         },
     ]);
 };

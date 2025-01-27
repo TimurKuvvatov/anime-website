@@ -6,12 +6,13 @@ export const animeApi = createApi({
     reducerPath: 'animeApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://shikimori.one/api/animes' }),
     endpoints: (builder) => ({
-        getAllAnimes: builder.query<IAnimeCart[], number>({
-            query: (limit) => ({
+        getAllAnimes: builder.query<IAnimeCart[], { limit: number; search?: string, order?: string }>({
+            query: ({ limit, search, order }) => ({
                 url: '',
                 params: {
                     limit,
-                    order: 'popularity',
+                    order,
+                    search,
                 },
             }),
         }),
