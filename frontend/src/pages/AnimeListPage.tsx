@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import AnimeList from '../components/AnimeList/AnimeList';
 import { animeApi } from '../services/animeApi';
 import { useAppSelector } from '../redux/hooks';
