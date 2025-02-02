@@ -1,10 +1,10 @@
-import { FC} from 'react';
+import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Swiper as SwiperType } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import styles from './TrendingCarousel.module.scss';
 
-import TrendingCart from '../TrendingCart/TrendingCart';
+import TrendingCart from '../TrendingCard/TrendingCard';
 import { Navigation } from 'swiper/modules';
 import { setActiveNews } from '../../redux/slices/activeNewsSlice';
 import { newsApi } from '../../services/newsApi';
@@ -17,7 +17,7 @@ const TrendingCarousel: FC = () => {
         dispatch(setActiveNews(newsId));
     };
 
-    const handleSlideChange = (swiper: any) => {
+    const handleSlideChange = (swiper: SwiperType) => {
         const currentIndex = swiper.realIndex;
         if (news) {
             const currentSlide = news[currentIndex];
