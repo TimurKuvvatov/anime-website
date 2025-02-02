@@ -10,25 +10,23 @@ interface AnimeDetailProps {
 
 const AnimeDetail: FC<AnimeDetailProps> = ({ anime }) => {
     return (
-        <div className="container">
-            <div className={styles.details}>
-                <div
-                    style={{ background: `url(${BASE_URL}${anime?.image.original})` }}
-                    className={styles.poster}
-                ></div>
-                <div className={styles.info}>
-                    <h2>{anime?.russian}</h2>
-                    {anime && (
-                        <AnimeInfo
-                            kind={anime.kind}
-                            episodes={anime.episodes}
-                            status={anime.status}
-                            rating={anime.rating}
-                            score={anime.score}
-                        ></AnimeInfo>
-                    )}
-                    <div className={styles.description}>{anime?.description}</div>
-                </div>
+        <div className={styles.details}>
+            <div
+                style={{ background: `url(${BASE_URL}${anime?.image.original})` }}
+                className={styles.poster}
+            ></div>
+            <div className={styles.info}>
+                <h2>{anime?.russian}</h2>
+                {anime && (
+                    <AnimeInfo
+                        kind={anime.kind}
+                        episodes={anime.episodes}
+                        status={anime.status}
+                        rating={anime.rating}
+                        score={anime.score}
+                    ></AnimeInfo>
+                )}
+                <div className={styles.description}>{anime?.description}</div>
             </div>
         </div>
     );
