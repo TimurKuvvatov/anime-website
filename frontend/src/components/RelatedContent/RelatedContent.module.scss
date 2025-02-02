@@ -1,0 +1,15 @@
+@use '../../styles/scss/variables' as *;
+
+.related__wrapper {
+    color: $primary-white;
+    h3 {
+        font-size: 28px;
+    }
+    padding: 25px 0;
+    .animes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}

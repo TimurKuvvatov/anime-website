@@ -1,6 +1,0 @@
-{
-    "rewrites": [{ "source": "asdsd/(.*)", "destination": "asd/" }],
-    "cleanUrls": true,
-    "trailingSlash": false
-    фывфыв фя фыдвasdas
-}
