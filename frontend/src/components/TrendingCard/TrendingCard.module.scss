@@ -1,0 +1,39 @@
+@use '../../styles/scss/variables' as *;
+
+.cart {
+    width: 220px;
+    height: 260px;
+    background-color: $primary-dark;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    .info {
+        color: $primary-white;
+        transition: all 0.3s ease;
+        opacity: 0;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        h3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+        p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 11;
+            overflow: hidden;
+        }
+    }
+    &:hover {
+        .info {
+            background-color: rgba(0, 0, 0, 0.5) !important;
+            opacity: 1;
+        }
+    }
+}
