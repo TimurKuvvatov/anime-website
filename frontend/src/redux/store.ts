@@ -5,6 +5,8 @@ import { animeApi } from '../services/animeApi';
 import activeNewsReducer from './slices/activeNewsSlice';
 import orderSlice from './slices/orderSlice';
 import searchSlice from './slices/searchSlice';
+import pageSlice from './slices/pageSlice';
+import genreSlice from './slices/genreSlice';
 
 const rootReducer = combineReducers({
     [newsApi.reducerPath]: newsApi.reducer,
@@ -12,6 +14,8 @@ const rootReducer = combineReducers({
     activeNews: activeNewsReducer,
     order: orderSlice,
     search: searchSlice,
+    page: pageSlice,
+    genre: genreSlice,
 });
 
 export const store = () => {
