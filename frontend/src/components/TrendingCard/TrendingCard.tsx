@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './TrendingCart.module.scss';
+import styles from './TrendingCard.module.scss';
 import { INews } from '../../models/INews';
 
 const TrendingCart: FC<INews> = ({ imageUrl, title, content }) => {

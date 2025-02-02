@@ -10,11 +10,11 @@ import 'swiper/swiper-bundle.css';
 import CartAnime from '../CartAnime/CartAnime';
 
 const Hits: FC = () => {
-    const { data: animes } = animeApi.useGetAllAnimesQuery({ limit: 20, order: 'popularity' });
+    const { data: animes = [] } = animeApi.useGetAllAnimesQuery({ limit: 20, order: 'popularity' });
     return (
         <div className={styles.hits}>
             <h1>ПОПУЛЯРНЫЕ</h1>
-            <div className={styles.carts}>
+            <div className={styles.cards}>
                 <Swiper
                     modules={[Navigation]}
                     navigation
@@ -22,12 +22,11 @@ const Hits: FC = () => {
                     pagination={{ clickable: true }}
                     slidesPerView={6}
                 >
-                    {animes &&
-                        animes.map((anime) => (
-                            <SwiperSlide key={anime.id}>
-                                <CartAnime {...anime} />
-                            </SwiperSlide>
-                        ))}
+                    {animes.map((anime) => (
+                        <SwiperSlide key={anime.id}>
+                            <CartAnime {...anime} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </div>
         </div>

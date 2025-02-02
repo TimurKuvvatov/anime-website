@@ -5,7 +5,7 @@ interface OrderState {
 }
 
 const initialState: OrderState = {
-    order: '',
+    order: 'popularity',
 };
 
 const orderSlice = createSlice({

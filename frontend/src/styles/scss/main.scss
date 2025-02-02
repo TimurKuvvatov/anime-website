@@ -9,11 +9,16 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-ul {
-    list-style-type: none;
+html {
+    scroll-behavior: smooth;
 }
+
 body {
     background-color: $primary-dark;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .container {
