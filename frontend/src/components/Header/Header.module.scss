@@ -1,12 +1,13 @@
 .header {
     height: 70px;
-    width: 100vw;
+    width: 100%;
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
     display: flex;
     align-items: center;
     justify-content: end;
     padding-right: 100px;
-    position: fixed;
+    position: sticky;
+    top: 0;
     z-index: 1;
 }
