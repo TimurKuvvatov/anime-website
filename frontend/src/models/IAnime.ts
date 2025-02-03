@@ -1,8 +1,8 @@
 import { AnimeRating } from '../types/AnimeRating';
-import { IAnimeCart } from './IAnimeCart';
+import { IAnimeCard } from './IAnimeCard';
 import { IStudio } from './IStudio';
 
-export interface IAnime extends IAnimeCart {
+export interface IAnime extends IAnimeCard {
     rating: AnimeRating;
     duration: number;
     next_episode_at: number | null;

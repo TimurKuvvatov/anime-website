@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { IAnimeCart } from '../../models/IAnimeCart';
-import styles from './CartAnime.module.scss';
+import { IAnimeCard } from '../../models/IAnimeCard';
+import styles from './CardAnime.module.scss';
 import { BASE_URL } from '../../constants';
 import { useNavigate } from 'react-router-dom';
-const CartAnime: FC<IAnimeCart> = ({ russian, id, image, kind, score, status, episodes }) => {
+
+const CardAnime: FC<IAnimeCard> = ({ russian, id, image, kind, score, status, episodes }) => {
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(`/animes/${id}`);
@@ -13,7 +14,7 @@ const CartAnime: FC<IAnimeCart> = ({ russian, id, image, kind, score, status, ep
         <div
             onClick={handleClick}
             style={{ background: `url(${BASE_URL}${image.original})` }}
-            className={styles.cart}
+            className={styles.card}
         >
             <div className={styles.content}>
                 <h3>{russian}</h3>
@@ -26,4 +27,4 @@ const CartAnime: FC<IAnimeCart> = ({ russian, id, image, kind, score, status, ep
     );
 };
 
-export default CartAnime;
+export default CardAnime;

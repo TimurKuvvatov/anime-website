@@ -1,7 +1,7 @@
-import { IAnimeCart } from './IAnimeCart';
+import { IAnimeCard } from './IAnimeCard';
 
 export interface IAnimeRelations {
     relation: string;
     relation_russian: string;
-    anime: IAnimeCart;
+    anime: IAnimeCard;
 }

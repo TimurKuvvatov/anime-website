@@ -4,7 +4,7 @@ import { Swiper as SwiperType } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import styles from './TrendingCarousel.module.scss';
 
-import TrendingCart from '../TrendingCard/TrendingCard';
+import TrendingCard from '../TrendingCard/TrendingCard';
 import { Navigation } from 'swiper/modules';
 import { setActiveNews } from '../../redux/slices/activeNewsSlice';
 import { newsApi } from '../../services/newsApi';
@@ -43,7 +43,7 @@ const TrendingCarousel: FC = () => {
                             onClick={() => handleClickSlide(newsElem.id)}
                             key={newsElem.id}
                         >
-                            <TrendingCart {...newsElem}></TrendingCart>
+                            <TrendingCard {...newsElem}></TrendingCard>
                         </SwiperSlide>
                     ))}
             </Swiper>

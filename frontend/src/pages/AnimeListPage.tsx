@@ -3,7 +3,7 @@ import AnimeList from '../components/AnimeList/AnimeList';
 import { animeApi } from '../services/animeApi';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { setPage } from '../redux/slices/pageSlice';
-import { IAnimeCart } from '../models/IAnimeCart';
+import { IAnimeCard } from '../models/IAnimeCard';
 
 const AnimeListPage: FC = () => {
     const dispatch = useAppDispatch();
@@ -21,7 +21,7 @@ const AnimeListPage: FC = () => {
         genre: genresId,
     });
 
-    const [initialAnimes, setInitialAnimes] = useState<IAnimeCart[]>([]);
+    const [initialAnimes, setInitialAnimes] = useState<IAnimeCard[]>([]);
 
     useEffect(() => {
         if (countGenresId.current !== genresId.length) {
