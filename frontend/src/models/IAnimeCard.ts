@@ -2,7 +2,7 @@ import { AnimeKind } from '../types/AnimeKind';
 import { AnimeStatus } from '../types/AnimeStatus';
 import { IImage } from './IImage';
 
-export interface IAnimeCart {
+export interface IAnimeCard {
     id: number;
     name: string;
     russian: string;

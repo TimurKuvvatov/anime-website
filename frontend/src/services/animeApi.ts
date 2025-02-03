@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IAnimeCart } from '../models/IAnimeCart';
+import { IAnimeCard } from '../models/IAnimeCard';
 import { IAnime } from '../models/IAnime';
 import { IAnimeRelations } from '../models/IAnimeRelation';
 
@@ -8,7 +8,7 @@ export const animeApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'https://shikimori.one/api/animes' }),
     endpoints: (builder) => ({
         getAllAnimes: builder.query<
-            IAnimeCart[],
+            IAnimeCard[],
             { limit: number; search?: string; order?: string; page?: number; genre?: number[] }
         >({
             query: ({ limit, search, order, page, genre }) => ({

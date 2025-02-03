@@ -16,13 +16,12 @@ const RelatedCard: FC<RelatedCardProps> = ({ anime }) => {
     };
 
     return (
-        <div className={styles.anime}>
+        <div onClick={() => handleClick(anime.anime.id)} className={styles.anime}>
             <Link to={`/animes/${anime.anime.id}`} title={anime.anime.russian}>
                 {anime.anime.russian}
             </Link>
             <div className={styles.content}>
                 <div
-                    onClick={() => handleClick(anime.anime.id)}
                     style={{ backgroundImage: `url(${BASE_URL}${anime.anime.image.original})` }}
                     className={styles.image}
                 ></div>

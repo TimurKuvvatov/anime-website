@@ -7,7 +7,7 @@ import { Navigation } from 'swiper/modules';
 import styles from './Hits.module.scss';
 import 'swiper/swiper-bundle.css';
 
-import CartAnime from '../CartAnime/CartAnime';
+import CardAnime from '../CardAnime/CardAnime';
 
 const Hits: FC = () => {
     const { data: animes = [] } = animeApi.useGetAllAnimesQuery({ limit: 20, order: 'popularity' });
@@ -24,7 +24,7 @@ const Hits: FC = () => {
                 >
                     {animes.map((anime) => (
                         <SwiperSlide key={anime.id}>
-                            <CartAnime {...anime} />
+                            <CardAnime {...anime} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

@@ -17,13 +17,22 @@
         flex-direction: column;
         gap: 40px;
         background: $primary-dark-gray;
+        border: 1px solid $primary-light-green;
+        border-radius: 15px;
         .anime {
             display: flex;
             flex-direction: row;
             gap: 40px;
+            border-radius: 15px;
+            cursor: pointer;
+            &:hover {
+                background: $primary-green;
+            }
             .info {
                 flex: 1 0 0;
                 color: $primary-white;
+                display: flex;
+                flex-direction: column;
                 h3 {
                     text-transform: uppercase;
                     font-size: 30px;

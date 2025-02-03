@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import { IAnimeCart } from '../../models/IAnimeCart';
+import { IAnimeCard } from '../../models/IAnimeCard';
 import styles from './AnimeList.module.scss';
 
-import CartAnime from '../CartAnime/CartAnime';
+import CardAnime from '../CardAnime/CardAnime';
 import { useNavigate } from 'react-router-dom';
 import SearchAnime from '../Search/Search';
 import useScroll from '../../hooks/useScroll';
 import Filter from '../Filter/Filter';
 
 interface AnimeListProps {
-    animes: IAnimeCart[];
+    animes: IAnimeCard[];
     loadMoreAnimes: () => void;
 }
 
@@ -32,11 +32,15 @@ const AnimeList: FC<AnimeListProps> = ({ animes, loadMoreAnimes }) => {
                             key={anime.id}
                             ref={index === animes.length - 1 ? lastItemRef : null}
                             className={styles.anime}
+                            onClick={() => handleClick(anime.id)}
                         >
-                            <CartAnime {...anime} />
+                            <CardAnime {...anime} />
                             <div className={styles.info}>
-                                <h3 onClick={() => handleClick(anime.id)}>{anime.russian}</h3>
+                                <h3>{anime.russian}</h3>
                                 <h2>{anime.name}</h2>
+                                <span>{anime.episodes} эпизод.</span>
+                                <span>{anime.kind}</span>
+                                <span>{anime.status}</span>
                             </div>
                         </li>
                     ))
