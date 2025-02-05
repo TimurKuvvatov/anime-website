@@ -13,13 +13,16 @@ const AnimeListPage: FC = () => {
     const genres = useAppSelector((state) => state.genre.genres);
     const genresId = genres.map((genre) => genre.id);
     const countGenresId = useRef<number>(genresId.length);
-    const { data: animes = [], isFetching } = animeApi.useGetAllAnimesQuery({
-        limit: 20,
-        order,
-        search,
-        page,
-        genre: genresId,
-    });
+    const { data: animes = [], isFetching } = animeApi.useGetAllAnimesQuery(
+        {
+            limit: 20,
+            order,
+            search,
+            page,
+            genre: genresId,
+        },
+        { skip: page !== 1 && countGenresId.current !== genresId.length },
+    );
 
     const [initialAnimes, setInitialAnimes] = useState<IAnimeCard[]>([]);
 
