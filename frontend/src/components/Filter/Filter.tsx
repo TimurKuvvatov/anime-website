@@ -1,20 +1,24 @@
-import { genres } from '../../data/data';
-import { IGenre } from '../../models/IGenre';
+import styles from './Filter.module.scss';
+
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { toggleGenre } from '../../redux/slices/genreSlice';
-import styles from './Filter.module.scss';
+
+import { genres } from '../../data/data';
+import { IGenre } from '../../models/IGenre';
+
+import { useCallback } from 'react';
+import ViewModeList from '../ViewModeList/ViewModeList';
 
 const Filter = () => {
     const dispatch = useAppDispatch();
     const activeGenres = useAppSelector((state) => state.genre.genres);
 
-    const handleGenreClick = (genre: IGenre) => {
-        dispatch(toggleGenre(genre));
-    };
-
-    const isActive = (genre: IGenre) => {
-        return activeGenres.some((activeGenre) => activeGenre.id === genre.id);
-    };
+    const isActive = useCallback(
+        (genre: IGenre) => {
+            return activeGenres.some((activeGenre) => activeGenre.id === genre.id);
+        },
+        [activeGenres],
+    );
 
     return (
         <div className={styles.filter}>
@@ -24,12 +28,14 @@ const Filter = () => {
                     <li
                         className={isActive(genre) ? `${styles.active}` : ''}
                         key={genre.id}
-                        onClick={() => handleGenreClick(genre)}
+                        onClick={() => dispatch(toggleGenre(genre))}
                     >
                         {genre.russian}
                     </li>
                 ))}
             </ul>
+            <h3>Отображение</h3>
+            <ViewModeList />
         </div>
     );
 };
