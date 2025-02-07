@@ -13,7 +13,10 @@ const AnimeListPage: FC = () => {
     const genres = useAppSelector((state) => state.genre.genres);
     const genresId = genres.map((genre) => genre.id);
     const countGenresId = useRef<number>(genresId.length);
-    const { data: animes = [], isFetching } = animeApi.useGetAllAnimesQuery(
+
+    const [hasMore, setHasMore] = useState<boolean>(true);
+
+    const { data: animes = [], isFetching, isSuccess } = animeApi.useGetAllAnimesQuery(
         {
             limit: 20,
             order,
@@ -28,33 +31,29 @@ const AnimeListPage: FC = () => {
 
     useEffect(() => {
         if (countGenresId.current !== genresId.length) {
-            if (!isFetching) {
-                dispatch(setPage(1));
-                setInitialAnimes(animes);
-                console.log('Поменялись жанры');
-            }
-            if (page !== 1) {
+            if (!isFetching && page !== 1) {
                 dispatch(setPage(1));
             }
-            window.scrollTo({
-                top: 0,
-            });
+            setInitialAnimes(animes);
+            console.log('Поменялись жанры');
+            window.scrollTo({ top: 0 });
             countGenresId.current = genresId.length;
         }
-        if (animes.length === 0) {
-            setInitialAnimes(animes);
-        }
-    }, [genresId]);
+    }, [genresId, isFetching, page]);
 
     useEffect(() => {
         if (animes.length > 0 && !isFetching) {
             setInitialAnimes((prev) => (page > 1 ? [...prev, ...animes] : animes));
             console.log('Лист аниме подгружается');
+            setHasMore(true);
         }
-    }, [animes, page, isFetching]);
+        else if (animes.length === 0 && isSuccess) {
+            setHasMore(false);
+        }
+    }, [animes, page, isFetching, isSuccess]);
 
     const loadMoreAnimes = () => {
-        if (!isFetching) {
+        if (!isFetching && hasMore) {
             dispatch(setPage(page + 1));
             console.log('Меняется страница loadMoreAnimes');
         }
