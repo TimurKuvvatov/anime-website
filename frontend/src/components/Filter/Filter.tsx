@@ -3,7 +3,7 @@ import styles from './Filter.module.scss';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { toggleGenre } from '../../redux/slices/genreSlice';
 
-import { genres } from '../../data/data';
+import { genres } from '../../data/genres';
 import { IGenre } from '../../models/IGenre';
 
 import { useCallback } from 'react';
