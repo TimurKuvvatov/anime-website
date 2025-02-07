@@ -9,16 +9,26 @@
     justify-content: center;
     align-content: stretch;
     position: absolute;
-    .list {
+    .container {
         padding: 20px;
         max-width: 1200px;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
         background: $primary-dark-gray;
         border: 1px solid $primary-light-green;
         border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        h1 {
+            text-align: center;
+            color: $primary-white;
+            height: 100%;
+        }
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         .anime {
             display: flex;
             flex-direction: row;
@@ -47,9 +57,15 @@
                 }
             }
         }
-        h1 {
-            text-align: center;
-            color: $primary-white;
+    }
+    .grid {
+        max-width: 1200px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        row-gap: 20px;
+        &:first-child {
+            grid-column: 1/-1;
         }
     }
 }

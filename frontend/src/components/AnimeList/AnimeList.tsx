@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import SearchAnime from '../Search/Search';
 import useScroll from '../../hooks/useScroll';
 import Filter from '../Filter/Filter';
+import { useAppSelector } from '../../redux/hooks';
 
 interface AnimeListProps {
     animes: IAnimeCard[];
@@ -15,6 +16,7 @@ interface AnimeListProps {
 
 const AnimeList: FC<AnimeListProps> = ({ animes, loadMoreAnimes }) => {
     const navigate = useNavigate();
+    const viewMode = useAppSelector((state) => state.viewMode.value);
 
     const handleClick = (id: number) => {
         navigate(`/animes/${id}`);
@@ -23,33 +25,37 @@ const AnimeList: FC<AnimeListProps> = ({ animes, loadMoreAnimes }) => {
     const lastItemRef = useScroll({ callback: loadMoreAnimes });
 
     return (
-        <div className={styles.wrapper}>
-            <ul className={styles.list}>
+        <section className={styles.wrapper}>
+            <div className={styles.container}>
                 <SearchAnime />
                 {animes.length > 0 ? (
-                    animes.map((anime, index) => (
-                        <li
-                            key={anime.id}
-                            ref={index === animes.length - 1 ? lastItemRef : null}
-                            className={styles.anime}
-                            onClick={() => handleClick(anime.id)}
-                        >
-                            <CardAnime {...anime} />
-                            <div className={styles.info}>
-                                <h3>{anime.russian}</h3>
-                                <h2>{anime.name}</h2>
-                                <span>{anime.episodes} эпизод.</span>
-                                <span>{anime.kind}</span>
-                                <span>{anime.status}</span>
-                            </div>
-                        </li>
-                    ))
+                    <ul className={viewMode === 'list' ? styles.list : styles.grid}>
+                        {animes.map((anime, index) => (
+                            <li
+                                key={anime.id}
+                                ref={index === animes.length - 1 ? lastItemRef : null}
+                                className={styles.anime}
+                                onClick={() => handleClick(anime.id)}
+                            >
+                                <CardAnime {...anime} />
+                                {viewMode === 'list' ? (
+                                    <div className={styles.info}>
+                                        <h3>{anime.russian}</h3>
+                                        <h2>{anime.name}</h2>
+                                        <span>{anime.episodes} эпизод.</span>
+                                        <span>{anime.kind}</span>
+                                        <span>{anime.status}</span>
+                                    </div>
+                                ) : null}
+                            </li>
+                        ))}
+                    </ul>
                 ) : (
                     <h1>ПО ВАШЕМУ ЗАПРОСУ НИЧЕГО НЕ НАЙДЕНО</h1>
                 )}
-            </ul>
+            </div>
             <Filter />
-        </div>
+        </section>
     );
 };
 
