@@ -7,6 +7,7 @@ import orderSlice from './slices/orderSlice';
 import searchSlice from './slices/searchSlice';
 import pageSlice from './slices/pageSlice';
 import genreSlice from './slices/genreSlice';
+import viewModeSlice from './slices/viewModeSlice';
 
 const rootReducer = combineReducers({
     [newsApi.reducerPath]: newsApi.reducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     search: searchSlice,
     page: pageSlice,
     genre: genreSlice,
+    viewMode: viewModeSlice,
 });
 
 export const store = () => {

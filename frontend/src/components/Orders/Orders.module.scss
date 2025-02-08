@@ -1,0 +1,31 @@
+@use '../../styles/scss/variables' as *;
+
+.orders {
+    color: $primary-light-green;
+    position: relative;
+    & > .order {
+        border-radius: 10px;
+        border: 1px solid $primary-light-green;
+    }
+    .order {
+        cursor: pointer;
+        padding: 10px;
+        &:hover {
+            background: $primary-green;
+        }
+    }
+    .modal {
+        z-index: 1;
+        top: 50px;
+        position: absolute;
+        background: $primary-dark-gray;
+        border-radius: 15px;
+        overflow: hidden;
+        opacity: 0;
+        transition: 0.2s ease;
+    }
+    .activeModal {
+        opacity: 1;
+        border: 1px solid $primary-light-green;
+    }
+}

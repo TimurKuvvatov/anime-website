@@ -13,7 +13,7 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ kind, episodes, status, rating, score }
     return (
         <ul className={styles.list}>
             <li>
-                Оценка: <span>{score}</span>
+                Оценка: <span>{score}/10</span>
             </li>
             <li>
                 Тип: <span>{kind}</span>{' '}

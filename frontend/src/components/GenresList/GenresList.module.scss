@@ -1,0 +1,28 @@
+@use '../../styles/scss/variables' as *;
+
+.genres {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    li {
+        cursor: pointer;
+        padding: 5px;
+        color: $primary-white;
+        opacity: 0.6;
+        border: 1px solid $primary-white;
+        transition: 0.2s ease;
+        border-radius: 5px;
+        &:hover {
+            opacity: 1;
+            background: $primary-white;
+            color: $primary-dark-gray;
+        }
+    }
+    li.active {
+        opacity: 1;
+        background: $primary-light-green;
+        border: 1px solid $primary-light-green;
+        color: $primary-dark-gray;
+    }
+}
