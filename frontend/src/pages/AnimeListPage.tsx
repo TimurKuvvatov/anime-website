@@ -11,12 +11,19 @@ const AnimeListPage: FC = () => {
     const search = useAppSelector((state) => state.search.value);
     const page = useAppSelector((state) => state.page.value);
     const genres = useAppSelector((state) => state.genre.genres);
+
     const genresId = genres.map((genre) => genre.id);
-    const countGenresId = useRef<number>(genresId.length);
+    const prevGenresId = useRef<number>(genresId.length);
+
+    const prevOrder = useRef<string>(order);
 
     const [hasMore, setHasMore] = useState<boolean>(true);
 
-    const { data: animes = [], isFetching, isSuccess } = animeApi.useGetAllAnimesQuery(
+    const {
+        data: animes = [],
+        isFetching,
+        isSuccess,
+    } = animeApi.useGetAllAnimesQuery(
         {
             limit: 20,
             order,
@@ -24,30 +31,34 @@ const AnimeListPage: FC = () => {
             page,
             genre: genresId,
         },
-        { skip: page !== 1 && countGenresId.current !== genresId.length },
+        {
+            skip:
+                page !== 1 &&
+                (prevGenresId.current !== genresId.length || prevOrder.current !== order),
+        },
     );
 
     const [initialAnimes, setInitialAnimes] = useState<IAnimeCard[]>([]);
 
     useEffect(() => {
-        if (countGenresId.current !== genresId.length) {
+        if (prevGenresId.current !== genresId.length || prevOrder.current !== order) {
             if (!isFetching && page !== 1) {
                 dispatch(setPage(1));
             }
             setInitialAnimes(animes);
             console.log('Поменялись жанры');
             window.scrollTo({ top: 0 });
-            countGenresId.current = genresId.length;
+            prevGenresId.current = genresId.length;
+            prevOrder.current = order;
         }
-    }, [genresId, isFetching, page]);
+    }, [genresId, isFetching, page, order]);
 
     useEffect(() => {
         if (animes.length > 0 && !isFetching) {
             setInitialAnimes((prev) => (page > 1 ? [...prev, ...animes] : animes));
             console.log('Лист аниме подгружается');
             setHasMore(true);
-        }
-        else if (animes.length === 0 && isSuccess) {
+        } else if (animes.length === 0 && isSuccess) {
             setHasMore(false);
         }
     }, [animes, page, isFetching, isSuccess]);
