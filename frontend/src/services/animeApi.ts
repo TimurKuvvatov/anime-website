@@ -9,7 +9,14 @@ export const animeApi = createApi({
     endpoints: (builder) => ({
         getAllAnimes: builder.query<
             IAnimeCard[],
-            { limit: number; search?: string; order?: string; page?: number; genre?: number[], kind?: string[]}
+            {
+                limit: number;
+                search?: string;
+                order?: string;
+                page?: number;
+                genre?: number[];
+                kind?: string[];
+            }
         >({
             query: ({ limit, search, order, page, genre, kind }) => ({
                 url: '',
@@ -19,7 +26,7 @@ export const animeApi = createApi({
                     search,
                     page,
                     genre,
-                    kind
+                    kind,
                 },
             }),
         }),
