@@ -14,17 +14,15 @@ const kindsSlice = createSlice({
     initialState,
     reducers: {
         toggleKinds(state, action: PayloadAction<IKind>) {
-            const existingKind = state.kinds.findIndex(kind => kind.name !== action.payload.name);
-            if (existingKind !== 1) {
-                state.kinds.splice(existingKind, 1)
-            }
-            else {
+            const existingKind = state.kinds.findIndex((kind) => kind.name === action.payload.name);
+            if (existingKind !== -1) {
+                state.kinds.splice(existingKind, 1);
+            } else {
                 state.kinds.push(action.payload);
             }
         },
     },
 });
 
-
-export const {toggleKinds} = kindsSlice.actions;
+export const { toggleKinds } = kindsSlice.actions;
 export default kindsSlice.reducer;
