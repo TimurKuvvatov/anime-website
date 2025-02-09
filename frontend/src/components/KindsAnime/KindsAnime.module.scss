@@ -1,0 +1,42 @@
+@use '../../styles/scss/variables' as *;
+
+.kinds {
+    .kind {
+        color: $primary-light-green;
+        font-size: 20px;
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        border-radius: 15px;
+        &:hover {
+            background: $primary-green;
+        }
+        .checkbox {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            background: $primary-dark-gray;
+            border-radius: 5px;
+            border: 2px solid $primary-sea-green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s ease-in;
+            img {
+                transition: 0.2s ease-in;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .activeCheckbox {
+            background: $primary-sea-green;
+            img {
+                opacity: 1;
+            }
+        }
+    }
+
+}
