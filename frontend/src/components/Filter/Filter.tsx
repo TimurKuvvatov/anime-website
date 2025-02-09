@@ -3,6 +3,7 @@ import styles from './Filter.module.scss';
 import ViewModeList from '../ViewModeList/ViewModeList';
 import GenresList from '../GenresList/GenresList';
 import Orders from '../Orders/Orders';
+import KindsAnime from '../KindsAnime/KindsAnime';
 
 const Filter = () => {
     return (
@@ -11,6 +12,8 @@ const Filter = () => {
             <Orders />
             <h3>Отображение</h3>
             <ViewModeList />
+            <h3>Виды</h3>
+            <KindsAnime />
             <h3>Жанры</h3>
             <GenresList />
         </div>
