@@ -7,15 +7,19 @@ import { IAnimeCard } from '../models/IAnimeCard';
 
 const AnimeListPage: FC = () => {
     const dispatch = useAppDispatch();
-    const order = useAppSelector((state) => state.order.order);
     const search = useAppSelector((state) => state.search.value);
     const page = useAppSelector((state) => state.page.value);
-    const genres = useAppSelector((state) => state.genre.genres);
 
+    const order = useAppSelector((state) => state.order.order);
+    const prevOrder = useRef<string>(order);
+
+    const kinds = useAppSelector((state) => state.kinds.kinds);
+    const kindsNames = kinds.map((kind) => kind.name);
+    const prevKindNames = useRef<number>(kindsNames.length);
+
+    const genres = useAppSelector((state) => state.genre.genres);
     const genresId = genres.map((genre) => genre.id);
     const prevGenresId = useRef<number>(genresId.length);
-
-    const prevOrder = useRef<string>(order);
 
     const [hasMore, setHasMore] = useState<boolean>(true);
 
@@ -30,6 +34,7 @@ const AnimeListPage: FC = () => {
             search,
             page,
             genre: genresId,
+            kind: kindsNames,
         },
         {
             skip:
@@ -41,17 +46,22 @@ const AnimeListPage: FC = () => {
     const [initialAnimes, setInitialAnimes] = useState<IAnimeCard[]>([]);
 
     useEffect(() => {
-        if (prevGenresId.current !== genresId.length || prevOrder.current !== order) {
+        if (
+            prevGenresId.current !== genresId.length ||
+            prevOrder.current !== order ||
+            prevKindNames.current !== kindsNames.length
+        ) {
             if (!isFetching && page !== 1) {
                 dispatch(setPage(1));
             }
             setInitialAnimes(animes);
-            console.log('Поменялись жанры');
+            console.log('Изменились параметры');
             window.scrollTo({ top: 0 });
             prevGenresId.current = genresId.length;
+            prevKindNames.current = kindsNames.length;
             prevOrder.current = order;
         }
-    }, [genresId, isFetching, page, order]);
+    }, [genresId, isFetching, page, order, kindsNames, dispatch]);
 
     useEffect(() => {
         if (animes.length > 0 && !isFetching) {
