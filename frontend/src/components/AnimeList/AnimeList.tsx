@@ -8,6 +8,7 @@ import SearchAnime from '../Search/Search';
 import useScroll from '../../hooks/useScroll';
 import Filter from '../Filter/Filter';
 import { useAppSelector } from '../../redux/hooks';
+import { BASE_URL } from '../../constants';
 
 interface AnimeListProps {
     animes: IAnimeCard[];
@@ -37,16 +38,23 @@ const AnimeList: FC<AnimeListProps> = ({ animes, loadMoreAnimes }) => {
                                 className={styles.anime}
                                 onClick={() => handleClick(anime.id)}
                             >
-                                <CardAnime {...anime} />
                                 {viewMode === 'list' ? (
-                                    <div className={styles.info}>
-                                        <h3>{anime.russian}</h3>
-                                        <h2>{anime.name}</h2>
-                                        <span>{anime.episodes} эпизод.</span>
-                                        <span>{anime.kind}</span>
-                                        <span>{anime.status}</span>
-                                    </div>
-                                ) : null}
+                                    <>
+                                        <img
+                                            src={BASE_URL + anime.image.preview}
+                                            alt={anime.russian}
+                                        />
+                                        <div className={styles.info}>
+                                            <h3>{anime.russian}</h3>
+                                            <h2>{anime.name}</h2>
+                                            <span>{anime.episodes} эпизод.</span>
+                                            <span>{anime.kind}</span>
+                                            <span>{anime.status}</span>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <CardAnime {...anime} />
+                                )}
                             </li>
                         ))}
                     </ul>

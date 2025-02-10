@@ -28,15 +28,21 @@
     .list {
         display: flex;
         flex-direction: column;
-        gap: 40px;
         .anime {
             display: flex;
             flex-direction: row;
             gap: 40px;
             border-radius: 15px;
+            padding: 10px;
             cursor: pointer;
             &:hover {
                 background: $primary-green;
+            }
+            img {
+                width: 150px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 15px;
             }
             .info {
                 flex: 1 0 0;
