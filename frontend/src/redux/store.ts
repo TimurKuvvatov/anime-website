@@ -8,6 +8,7 @@ import searchSlice from './slices/searchSlice';
 import pageSlice from './slices/pageSlice';
 import genreSlice from './slices/genreSlice';
 import viewModeSlice from './slices/viewModeSlice';
+import kindsSlice from './slices/kindsSlice';
 
 const rootReducer = combineReducers({
     [newsApi.reducerPath]: newsApi.reducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     page: pageSlice,
     genre: genreSlice,
     viewMode: viewModeSlice,
+    kinds: kindsSlice,
 });
 
 export const store = () => {

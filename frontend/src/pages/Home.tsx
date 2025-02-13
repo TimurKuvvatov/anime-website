@@ -1,12 +1,14 @@
 import { FC } from 'react';
 import Trending from '../components/Trending/Trending';
 import Hits from '../components/Hits/Hits';
+import WelcomeSection from '../components/WelcomeSection/WelcomeSection';
 
 const Home: FC = () => {
     return (
         <>
-            <Trending />
+            <WelcomeSection />
             <Hits />
+            <Trending />
         </>
     );
 };
