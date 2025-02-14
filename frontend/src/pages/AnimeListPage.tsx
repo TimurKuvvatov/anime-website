@@ -18,7 +18,7 @@ import { genres as dataGenres } from '../data/genres';
 const AnimeListPage: FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     const search = useAppSelector((state) => state.search.value);
     const page = useAppSelector((state) => state.page.value);
