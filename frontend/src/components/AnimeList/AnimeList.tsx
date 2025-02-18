@@ -9,6 +9,7 @@ import useScroll from '../../hooks/useScroll';
 import Filter from '../Filter/Filter';
 import { useAppSelector } from '../../redux/hooks';
 import { BASE_URL } from '../../constants';
+import getEpisodeEnding from '../../utils/episodeEndings';
 
 interface AnimeListProps {
     animes: IAnimeCard[];
@@ -47,7 +48,9 @@ const AnimeList: FC<AnimeListProps> = ({ animes, loadMoreAnimes }) => {
                                         <div className={styles.info}>
                                             <h3>{anime.russian}</h3>
                                             <h2>{anime.name}</h2>
-                                            <span>Эпизодов: {anime.episodes}</span>
+                                            <span>
+                                                {getEpisodeEnding(anime.episodes)}: {anime.episodes}
+                                            </span>
                                             <span>{anime.kind}</span>
                                             <span>{anime.status}</span>
                                         </div>
