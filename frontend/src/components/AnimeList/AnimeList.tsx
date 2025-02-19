@@ -49,7 +49,7 @@ const AnimeList: FC<AnimeListProps> = ({ animes, loadMoreAnimes }) => {
                                             <h3>{anime.russian}</h3>
                                             <h2>{anime.name}</h2>
                                             <span>
-                                                {getEpisodeEnding(anime.episodes)}: {anime.episodes}
+                                                {anime.episodes} {getEpisodeEnding(anime.episodes)}
                                             </span>
                                             <span>{anime.kind}</span>
                                             <span>{anime.status}</span>
