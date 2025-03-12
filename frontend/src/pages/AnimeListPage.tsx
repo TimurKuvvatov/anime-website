@@ -37,7 +37,7 @@ const AnimeListPage: FC = () => {
     const [hasMore, setHasMore] = useState<boolean>(true);
 
     const buildAnimeUrl = useCallback(
-        (order: string, genres: IGenre[], kind: string[], search: string) => {
+        (order: string, genres: IGenre[], kinds: string[], search: string) => {
             const params = new URLSearchParams();
             if (order) params.append('order', order);
             if (search) params.append('search', search);
@@ -45,7 +45,7 @@ const AnimeListPage: FC = () => {
                 genres.forEach((genre) => params.append('genre', genre.name));
             }
             if (kinds && kinds.length > 0) {
-                kinds.forEach((kind) => params.append('kind', kind.name));
+                kinds.forEach((kind) => params.append('kind', kind));
             }
             return `?${params.toString()}`;
         },
