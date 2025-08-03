@@ -19,7 +19,6 @@ const AnimePlayer: FC<AnimePlayerProps> = ({ id }) => {
                     allow="autoplay *; fullscreen *"
                 ></iframe>
             </div>
-            <div className={styles.blur}></div>
         </div>
     );
 };
